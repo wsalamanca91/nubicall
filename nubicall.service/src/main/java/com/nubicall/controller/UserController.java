@@ -1,7 +1,5 @@
 package com.nubicall.controller;
 
-import java.util.Date;
-
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
@@ -17,16 +15,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import com.nubicall.model.Response;
 import com.nubicall.model.User;
 import com.nubicall.service.UserService;
 
+@EnableWebMvc
 @RestController
 public class UserController {
 	
-	private static final String TEST_RESPONSE_PREFIX = "testUuid-";
-	private static final String TEST_RESPONSE_END = "-nubicall";
 	private static final String USER_TO_CREATE_MESSAGE = "User to create ";
 	private static final String USER_CREATED_MESSAGE = "User created ";
 	private static final String USER_TO_UPDATE_MESSAGE = "User to update ";
@@ -138,7 +136,6 @@ public class UserController {
 	
 	private Response createResponse(){
 		Response response = new Response();
-		response.setUuid(TEST_RESPONSE_PREFIX+(new Date()).getTime()+TEST_RESPONSE_END);
 		return response;
 	}
 }

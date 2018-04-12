@@ -1,5 +1,6 @@
 package com.nubicall.model;
 
+import java.util.UUID;
 
 /**
  * @author Wilson Salamanca
@@ -10,18 +11,22 @@ public class Response {
 	/**
 	 * Universally Unique TX Identifier
 	 */
-	private String uuid;
+	private UUID uuid;
 	
 	/**
 	 * Short Result Description
 	 */
 	private String message;
+	
+	public Response(){
+		this.uuid = UUID.randomUUID();
+	}
 
-	public String getUuid() {
+	public UUID getUuid() {
 		return uuid;
 	}
 
-	public void setUuid(String uuid) {
+	public void setUuid(UUID uuid) {
 		this.uuid = uuid;
 	}
 
